@@ -35,9 +35,7 @@
 
 
 // Processing Script
-updateUser(tName, rID, item_ref_field, fName);
-
-function updateUser(t, r, u, f){
+(function updateUser(t, r, u, f){
 	var gr = new GlideRecord(t);
 	if(gr.get(r)){
 		gr.setValue(f, u);
@@ -46,5 +44,6 @@ function updateUser(t, r, u, f){
 
 	var urlOnStack = GlideSession.get().getStack().bottom();
 	response.sendRedirect(urlOnStack);
-}
+	gs.addInfoMessage('Issue Manager updated.');
+})(tName, rID, item_ref_field, fName);
 
